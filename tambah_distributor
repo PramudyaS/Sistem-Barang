@@ -1,0 +1,112 @@
+<?php 
+$table = "table_distributor";
+$kode = $statement->autokode($table,"kd_distributor","KDS");
+$datas = $statement->data_table($table);
+
+if(isset($_POST['simpan'])){
+	$dist = $_POST['kd_dist'];
+	$nama = $_POST['nama'];
+	$telp = $_POST['no_telp'];
+	$alamat = $_POST['alamat'];
+	$value = "'$dist','$nama','$alamat','$telp'";
+	$form = "menus=distributor_barang";
+	$statement->insert("table_distributor",$value,$form);
+}
+
+if(isset($_GET['hapus'])){
+	$data = $_GET['id'];
+	$form = "menus=distributor_barang";
+	$statement->delete("table_distributor","kd_distributor",$data,$form);
+}
+
+if(isset($_GET['edit'])){
+	$id = $_GET['id'];
+	$edit = $statement->edit("table_distributor","kd_distributor",$id);
+	$kode = $_GET['id'];
+}
+
+if (isset($_POST['update'])) {
+	$dist = $_POST['kd_dist'];
+	$nama = $_POST['nama'];
+	$telp = $_POST['no_telp'];
+	$alamat = $_POST['alamat'];
+	$values = "nama_distributor='$nama',alamat='$alamat',no_telp='$telp'";
+	$id = $_GET['id'];
+	$form = "menus=distributor_barang";
+	$statement->update($table,$values,"kd_distributor",$id,$form);
+}
+
+?>
+
+
+<form action="" method="post">
+<div class="col-md-12">
+	<div class="panel panel-default">
+		<div class="panel-heading main-color-bg">
+			<p class="panel-title">Tambah Distributor</p>
+			
+		</div>
+		<div class="panel-body">
+			<div class="col-md-4">
+				<div class="form-group">
+				<label for="">Kode Distributor</label>
+				<input type="text" name="kd_dist" value="<?= $kode ?>" placeholder="" class="form-control" readonly>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				<label for="">Nama Distributor</label>
+				<input type="text" name="nama" autocomplete="off" value="<?= @$edit['nama_distributor'] ?>" placeholder="" class="form-control" required>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				<label for="">No Telepon</label>
+				<input type="number" name="no_telp" autocomplete="off" maxlength="12" value="<?= @$edit['no_telp'] ?>" placeholder="" class="form-control" required>
+				</div>
+			</div>
+			<div class="col-md-12">
+			<div class="form-group">
+				<label for="">Alamat :</label>
+				<textarea name="alamat" id="" autocomplete="off" required="" class="form-control"><?= @$edit['alamat'] ?></textarea>
+			</div>
+			</div>
+			<?php if (!isset($_GET['edit'])): ?>
+				<button class="btn btn-primary" style="margin-left:2%;" name="simpan">Simpan</button>
+			<?php else: ?>
+				<button class="btn btn-success" style="margin-left:2%;" name="update">Update</button>
+				<a href="?menus=distributor_barang" class="btn btn-warning">Cancel <span class="fa fa-close"></span></a>
+			<?php endif ?>
+			<hr>
+			<table class="table table-bordered" id="example" style="width:100%">
+			<thead>
+				<th>Kode Distributor</th>
+				<th>Nama Distributor</th>
+				<th>No Telepon</th>
+				<th>Alamat</th>
+				<th class="text-center">Action</th>
+			</thead>
+			
+			<tbody>
+				<?php foreach ($datas as $field): ?>
+				<tr>
+				<td><?= $field['kd_distributor'] ?></td>
+				<td><?= $field['nama_distributor'] ?></td>
+				<td><?= $field['no_telp'] ?></td>
+				<td><?= $field['alamat'] ?></td>
+				<td>
+					<div class="btn-group">
+					<a href="?menus=distributor_barang&hapus&id=<?= $field['kd_distributor'] ?>" class="btn btn-danger" onclick="return confirm('Apa Anda Yakin ?')"><span class="fa fa-trash"></span></a>
+					<a href="?menus=distributor_barang&edit&id=<?= $field['kd_distributor'] ?>" class="btn btn-info"><span class="fa fa-pencil"></span></a>
+					</div>
+				</td>
+				</tr>
+				<?php endforeach ?>
+			</tbody>
+			
+		</table>
+		</div>
+
+	</div>
+		</form>
+</div>
