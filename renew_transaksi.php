@@ -49,7 +49,7 @@ $total = $statement->select_field("table_transaksi","kd_transaksi",$id);
 				<div class="col-md-12">
 				<a href="" class="btn btn-primary" id="a" onclick="window.print()">Print <span class="fa fa-print"></span></a>
 				<br>
-				<p style="font-size:10px">PT. PSinventory Indonesia - 16730</p>
+				<p style="font-size:10px">Arsen Kusuma Indonesia</p>
 				<h4 class="text-center" style="margin-bottosm:-2%">Struck Pembelian</h4>
 				<hr id="garis2">
 				<p style="font-size:12px;margin-bottom:-3%" id="tgl">Tanggal Cetak : <?= $date ?></p>

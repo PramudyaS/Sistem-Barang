@@ -44,7 +44,7 @@ if(isset($_GET['logout'])){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">PS</a>
+          <a class="navbar-brand" href="#">Arsen Kusuma Indonesia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -62,8 +62,8 @@ if(isset($_GET['logout'])){
     <header id="header">
       <div class="container">
         <div class="row">
-          <div class="col-md-10">
-            <h1><span class="" aria-hidden="true"></span>Manager <small>Kelola Barangmu</small></h1>
+          <div class="col-md-10" style="padding:2px">
+            <img src="image/arsen-white.png" alt="" style="width:200px;height:60px">
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ $dist = $statement->data_table("table_distributor");
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-heading main-color-bg">
-				<h4>Data Semua Barang</h4>
+				<h4>Data Semua Barang Keluar</h4>
 			</div>
 			<div class="panel-body table-responsive">
 				<a href="v_semuaBarang.php" target="_blank" class="btn btn-primary">Print Data <span class="fa fa-file-text-o"></span></a>
@@ -21,8 +21,8 @@ $dist = $statement->data_table("table_distributor");
 						<th>Merek</th>
 						<th>Distributor</th>
 						<th>Harga</th>
-						<th>Stok</th>
-						<th>Tanggal Masuk</th>
+						<th>Jumlah</th>
+						<th>Tanggal Keluar</th>
 					</thead>
 					<tbody>
 						<?php

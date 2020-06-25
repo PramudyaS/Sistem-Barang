@@ -52,7 +52,7 @@ if(isset($_POST['login'])){
 				<form action="" method="post">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4 class="text-center">App Sistem Barang</h3> 
+							<h4 class="text-center">App Sistem IMS</h3> 
 						</div>
 						<div class="panel-body">
 						<div class="divider"></div>

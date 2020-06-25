@@ -51,7 +51,7 @@ if(isset($_POST['simpan'])){
  <form action="" method="post" enctype="multipart/form-data">
   <div class="panel panel-default">
     <div class="panel-heading main-color-bg">
-        <p class="panel-title text-center">Tambah Barang</p>
+        <p class="panel-title text-center">Barang Masuk</p>
     </div>
 
     <div class="panel-body">
